@@ -1,0 +1,212 @@
+  
+
+🐳 Building My First Custom Docker Image with Dockerfile 🚀
+ 
+
+
+As We continue our Docker learning journey, I explored one of the most important concepts in containerization: Dockerfiles.
+
+  
+
+📌 What is a Dockerfile?
+
+  
+
+A Dockerfile is a text document that contains a set of instructions used to automatically build a Docker image.
+
+  
+
+Instead of manually installing software and configuring environments every time, we can define everything as code and let Docker build the image for us.
+
+  
+
+✅ Consistent builds
+
+  
+
+✅ Reproducible environments
+
+  
+
+✅ Faster deployments
+
+  
+
+✅ Infrastructure as Code approach
+ 
+ 
+ Vi Dockerfile and inside the file paste the below commands.
+ 
+ FROM ubuntu
+
+  
+
+MAINTAINER mpariyar4411@gmail.com
+
+  
+
+RUN apt-get update
+
+  
+
+RUN apt-get install nginx -y
+
+  
+
+CMD [“echo”,”Image created”]
+ 
+ save the file by pressing ESC and then Type :wq!
+ 
+
+  
+
+🏗️ Docker Build Process
+
+  
+
+Dockerfile ➜ Docker Image ➜ Docker Container
+
+  
+
+A Dockerfile acts as a blueprint, an image is the packaged application, and a container is the running instance of that image.
+
+  
+
+📚 Hands-On Learning
+
+  
+
+For practice, I created my own Nginx image using a Dockerfile:
+
+  
+
+🔹 Started with an Ubuntu base image
+
+  
+
+🔹 Updated package repositories
+
+  
+
+🔹 Installed Nginx
+ 
+
+🔹 Built a custom image using Docker Build
+
+  
+
+Example workflow:
+
+  
+
+docker build -t mynginxpractical.
+ 
+
+The . tells Docker to use the current directory where the Dockerfile exists. 
+ 
+
+
+📝 Image Management
+
+  
+
+After building the image, I learned how to:
+
+  
+
+✅ List available images using docker images
+
+  
+
+✅ Tag an image with a version name
+
+  
+
+✅ Prepare the image for Docker Hub
+
+  
+
+Example:
+
+  
+
+docker tag mynginxpractical   jeevanpariyar/mynginxpractical :latest
+ 
+
+
+
+☁️ Sharing Images with Docker Hub
+
+  
+
+Once the image was ready:
+
+  
+
+🔹 Login to Docker Hub
+
+  
+
+🔹 Push the image to a repository
+
+  
+
+🔹 Verify the image online
+
+  
+
+Commands:
+
+  
+
+docker login
+  
+
+docker push <new_image_name>
+ 
+
+  
+
+This makes the image available from anywhere, allowing developers and systems to pull and run it consistently.
+ 
+ Verify if image is pushed to Dock hub by login into: https://hub.docker.com/
+ 
+
+
+💡 Key Takeaways
+
+  
+
+✔️ Dockerfiles automate image creation.
+
+  
+
+✔️ Every image starts with a base image.
+
+  
+
+✔️ Images can be customized for specific application needs.
+
+  
+
+✔️ Docker Hub enables image sharing and collaboration.
+
+  
+
+✔️ Dockerfiles are the foundation of modern CI/CD and cloud-native deployments.
+ 
+ 
+
+  
+
+Every Docker expert started with a simple Dockerfile. Today I built my first custom image, and next I'll be diving deeper into Docker networking, volumes, and Docker Compose. 🚀
+
+  
+
+What's the first application you containerized using Docker?
+
+#Docker #Dockerfile #DevOps #CloudComputing #Containerization #Nginx #DockerHub #CloudNative #Microservices #LearningInPublic #SoftwareEngineering #TechLearning
+ 
+ 
+
+  

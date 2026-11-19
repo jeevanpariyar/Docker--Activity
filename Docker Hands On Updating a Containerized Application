@@ -1,0 +1,104 @@
+🐳 Docker Hands-On: Updating a Containerized Application
+
+As part of my DevOps learning journey, we are on a journey of building a Docker image, deploying a container, exposing application ports, and testing application connectivity.
+The objective was to containerize an application and make it accessible through the host machine.
+
+💡 Key DevOps Learnings
+Through this practical exercise, I strengthened my understanding of:
+✅ Docker image creation and versioning
+✅ Running containers in detached mode
+✅ Port mapping and container networking
+✅ Updating application source files
+✅ Building a new image version (v1 → v2)
+✅ Removing and recreating containers
+✅ Deploying updated application versions
+✅ Validating deployments using curl
+🚀 Real-World DevOps Connection
+
+
+This exercise demonstrates a fundamental application deployment workflow:
+
+Source Code Update → Docker Image Build → Container Replacement → Application Verification
+
+In production environments, similar concepts are implemented through CI/CD pipelines and container orchestration platforms such as Kubernetes.
+
+🔹 Step 1: Build the Docker Image
+Created a Docker image named app/v1 using the Dockerfile.
+docker build -t app:v1 .
+
+ 
+What I learned:
+•	How to build Docker images.
+•	How to assign image names and tags.
+•	How Docker uses a Dockerfile to package an application.
+🔹 Step 2: Run the Container
+Started a container named app using the newly created image.
+docker run -d -p 3000:3000 --name app app:v1
+ 
+
+Understanding the flags:
+•	-d – Runs the container in detached mode (background).
+•	-p 3000:3000 – Maps host port 3000 to container port 3000.
+•	--name app – Assigns a custom name to the container.
+•	App:v1 – Specifies the Docker image.
+
+ 
+🔹 Step 3: Test Application Connectivity
+Verified that the application was accessible using:
+curl localhost:3000
+ 
+This confirmed that the application was responding through the exposed port.
+
+ 
+
+🔹 Part 2: Update and Redeploy the Application (v2)
+Next, I simulated a real-world application update by modifying the application content and deploying a new Docker image.
+Step 1: Update Application Content
+Appended a new HTML heading to /root/index.html.
+echo '<h2>Some updates for app/v2</h2>' >> /root/index.html
+ 
+Step 2: Build the Updated Docker Image
+Created a new image version without modifying the existing v1 image.
+docker build -t app/v2 -f . 
+
+ 
+Step 3: Remove the Existing Container
+Removed the old v1 container before deploying the updated version.
+docker rm -f <container_id/container_name>
+ 
+Step 4: Deploy the Updated Application
+Started a new container using the app/v2 image.
+docker run -d -p 3000:3000 --name app app/v2
+ 
+Step 5: Verify the Updated Application
+curl localhost:3000
+Verified the updated application response, including the new HTML heading:
+<h2>Some updates for app/v2</h2>
+ 
+ 
+
+Pushing images to Dockerhub.
+
+ 
+_______________________________________
+💡 Key DevOps Learnings
+Through this practical exercise, I strengthened my understanding of:
+✅ Docker image creation and versioning
+✅ Running containers in detached mode
+✅ Port mapping and container networking
+✅ Updating application source files
+✅ Building a new image version (v1 → v2)
+✅ Removing and recreating containers
+✅ Deploying updated application versions
+✅ Validating deployments using curl
+🚀 Real-World DevOps Connection
+This exercise demonstrates a fundamental application deployment workflow:
+Source Code Update → Docker Image Build → Container Replacement → Application Verification
+In production environments, similar concepts are implemented through CI/CD pipelines and container orchestration platforms such as Kubernetes.
+The next step is exploring how to automate this deployment process using Jenkins and Kubernetes.
+Learning by doing. Building by experimenting. Growing with DevOps!
+#Docker #DockerImages #DockerContainers #DevOps #Containerization #CI_CD #Kubernetes #Jenkins #CloudComputing #AWS #Linux #DevOpsEngineer #ContinuousLearning
+
+
+
+
